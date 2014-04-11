@@ -3,6 +3,7 @@ package edu.utep.cs.cs4390.getfit;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,6 +24,9 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+    }
+    public void onClick(View v){
+    	startActivity(new Intent("edu.utep.cs.cs4390.getfit.BodyParts"));
     }
 
 
