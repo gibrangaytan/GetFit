@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
         Log.d("Reading: ", "Reading all the exercises..");
         List<Exercise> excercises = db.getAllExercises();
         for (Exercise cn : excercises){
-        	String log = "Id: "+cn.getId()+" Name: "+cn.getName()+" Steps: "+cn.getSteps();
+        	String log = "Id: "+cn.getId()+" Name: "+cn.getName();
         	Log.d("Name: ",log);
         }*/
     }
