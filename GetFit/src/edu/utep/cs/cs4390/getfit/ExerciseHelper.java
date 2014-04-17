@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class ExerciseHelper extends SQLiteOpenHelper{
 	
@@ -64,6 +65,52 @@ public class ExerciseHelper extends SQLiteOpenHelper{
 	    // return contact list
 	    return exercisesList;
 	}
+	
+    Muscle getMuscle(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+ 
+        Cursor cursor = db.query("muscles",
+        		new String[] {"name"},
+        		"id = ?",
+        		new String[]{String.valueOf(id)},
+        		null,
+        		null,
+        		null,
+        		null);
+        		
+        		
+        if (cursor != null)
+            cursor.moveToFirst();
+        	
+        	Muscle muscle = new Muscle();
+        	muscle.setName(cursor.getString(0));
+
+        	Log.d("getMuscle("+id+")", muscle.name());
+        	
+        return muscle;
+    }
+    // Getting All Contacts
+    public List<Muscle> getAllMuscles() {
+        List<Muscle> muscleList = new ArrayList<Muscle>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + "muscles";
+ 
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+ 
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Muscle muscle = new Muscle();
+                muscle.setName(cursor.getString(1));
+                // Adding contact to list
+                muscleList.add(muscle);
+            } while (cursor.moveToNext());
+        }
+ 
+        // return contact list
+        return muscleList;
+    }
 	
 
 }

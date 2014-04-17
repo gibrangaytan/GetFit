@@ -1,8 +1,11 @@
 package edu.utep.cs.cs4390.getfit;
 
+import java.util.List;
+
 import edu.utep.cs.cs4390.getfit.MainActivity.PlaceholderFragment;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,7 +15,38 @@ public class BodyParts extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bodyparts);
 
+        ExerciseHelper db = new ExerciseHelper(this);
+    	List<Muscle> muscle = db.getAllMuscles();
+    	for (Muscle m : muscle) {
+            String log = " Name: " + m.name();
+                // Writing Contacts to log
+        Log.d("Name: ", log);
     }
+
+    }
+	
+//	public void onClick(View v) {
+//
+//	     switch(v.getId()){
+//	     case (R.id.plusbutton):
+//	                 Button myButton = new Button(this);
+//	                 myButton.setText("Add Me");
+//
+//	                 LinearLayout ll = (LinearLayout)findViewById(R.id.buttonlayout);
+//	                 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+//	                 ll.addView(myButton, lp);
+//	                 break;.
+//	     case (R.id.minusbutton):
+//	                 Button myButton = new Button(this);
+//	                 myButton.setText("Remove Me");
+//
+//	                 LinearLayout ll = (LinearLayout)findViewById(R.id.buttonlayout);
+//	                 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+//	                 ll.removeView(myButton, lp);
+//	                 break;
+//	           }
+//	         }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
