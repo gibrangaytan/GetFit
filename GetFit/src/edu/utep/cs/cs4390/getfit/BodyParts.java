@@ -1,31 +1,52 @@
 package edu.utep.cs.cs4390.getfit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.utep.cs.cs4390.getfit.MainActivity.PlaceholderFragment;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+
 
 public class BodyParts extends Activity {
+	
+	ArrayList<Muscle> muscle;
+	ArrayList<String> mu;
+	ArrayAdapter adapter;
+	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bodyparts);
+        
+        ListView listview = (ListView)findViewById(R.id.list);
 
         ExerciseHelper db = new ExerciseHelper(this);
-    	List<Muscle> muscle = db.getAllMuscles();
+         muscle = new ArrayList<Muscle>();
+         mu = new ArrayList<String>();
+    	 muscle = db.getAllMuscles();
     	for (Muscle m : muscle) {
             String log = " Name: " + m.name();
-                // Writing Contacts to log
+            mu.add(m.name());		// puts the String name in the ArrayList<String>
+                // Writing Muscles to log
         Log.d("Name: ", log);
     }
-
+    	adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , mu);
+    	listview.setAdapter(adapter);
+    //	listview.setOnItem
+    	
+    	
     }
 	
 
