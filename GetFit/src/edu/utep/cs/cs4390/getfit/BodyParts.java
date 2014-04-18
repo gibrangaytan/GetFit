@@ -6,6 +6,7 @@ import java.util.List;
 import edu.utep.cs.cs4390.getfit.MainActivity.PlaceholderFragment;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -52,9 +53,14 @@ public class BodyParts extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
 				String item = (String) parent.getItemAtPosition(position);
+				int idM	= muscle.get(position).getID();
+				String idValue = Integer.toString(idM);
 				
-				//Toast.makeText(getApplicationContext(),item , Toast.LENGTH_SHORT).show();
-			//	Intent i = new Intent(this, ExcerciseList.)
+				//Toast.makeText(getApplicationContext(), idValue, Toast.LENGTH_SHORT).show();
+				Intent i = new Intent("edu.utep.cs.cs4390.getfit.ExerciseList");
+				i.putExtra("id", idValue);
+				startActivity(i);
+				
 
 				}
 			

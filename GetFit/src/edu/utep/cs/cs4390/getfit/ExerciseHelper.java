@@ -102,6 +102,7 @@ public class ExerciseHelper extends SQLiteOpenHelper{
         if (cursor.moveToFirst()) {
             do {
                 Muscle muscle = new Muscle();
+                muscle.setID(cursor.getInt(0));
                 muscle.setName(cursor.getString(1));
                 // Adding contact to list
                 muscleList.add(muscle);
@@ -114,10 +115,10 @@ public class ExerciseHelper extends SQLiteOpenHelper{
     }
     
   //getting all exercises for a muscle
-        public ArrayList<Exercise> getExerciseByMuscle(String muscle){
+        public ArrayList<Exercise> getExerciseByMuscle(String muscleID){
         	ArrayList<Exercise> exerciseByMuscle = new ArrayList<Exercise>();
        	//Select query
-    	String selectQuery = "SELECT * FROM exercises WHERE id IN (SELECT exercises_id FROM exercises_has_muscles WHERE muscles_id IN (SELECT id FROM muscles WHERE name'"+muscle+"'));";
+    	String selectQuery = "SELECT e.*,em.muscles_id FROM exercises as e LEFT JOIN exercises_has_muscles as em ON e.id = em.exercises_id where em.muscles_id = "+muscleID+" ORDER BY e.name;";
         	
         	SQLiteDatabase db = this.getReadableDatabase();
            Cursor cursor = db.rawQuery(selectQuery, null);
@@ -126,6 +127,7 @@ public class ExerciseHelper extends SQLiteOpenHelper{
             if (cursor.moveToFirst()) {
                 do {
                     Exercise exercise = new Exercise();
+                    exercise.setId(cursor.getInt(0));
                     exercise.setName(cursor.getString(1));
                     // Adding contact to list
                     exerciseByMuscle.add(exercise);

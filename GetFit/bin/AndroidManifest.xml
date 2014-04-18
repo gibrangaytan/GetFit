@@ -30,6 +30,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+         <activity
+            android:label="ExerciseList"
+            android:name=".ExerciseList" >
+            <intent-filter >
+                <action android:name="edu.utep.cs.cs4390.getfit.ExerciseList"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         
     </application>
 
