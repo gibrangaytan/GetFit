@@ -37,6 +37,7 @@ public class ExerciseView extends Activity{
 		//Toast.makeText(getApplicationContext(),"exe"+ id, Toast.LENGTH_SHORT).show();
 		ExerciseHelper db = new ExerciseHelper(this);
 		String text = db.getExercise(id).getSteps();
+		text = text.replaceAll("\\r", "");
 		textview.setText(text);
 	}
 	

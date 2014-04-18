@@ -10,13 +10,22 @@
     tools:context="edu.utep.cs.cs4390.getfit.ExerciseView" >
     
     
-     <TextView  android:text="TextView"
+     <TextView 
 			    android:id="@+id/steps"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:textColor="@color/white">
 					
 	</TextView>
-    
+
+	     <TextView
+	         android:id="@+id/jefit"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_alignLeft="@+id/steps"
+	         android:layout_below="@+id/steps"
+	         android:layout_marginTop="85dp"
+	         android:text="CopyRight of JeFit.com"
+	         android:textColor="@color/white" />
     
     </RelativeLayout>
