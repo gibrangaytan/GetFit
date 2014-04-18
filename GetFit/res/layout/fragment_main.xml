@@ -6,24 +6,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/black"
     tools:context="edu.utep.cs.cs4390.getfit.MainActivity$PlaceholderFragment" >
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/getfit" />
+
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/meals"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="101dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/meals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Button" />
+        android:layout_marginBottom="38dp"
+        android:text="Profile" />
 
     <Button
         android:id="@+id/exercises"
@@ -31,8 +32,17 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/meals"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="14dp"
         android:onClick="onClick"
         android:text="Exercises" />
+
+    <Button
+        android:id="@+id/meals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/profile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:text="Meals" />
 
 </RelativeLayout>
