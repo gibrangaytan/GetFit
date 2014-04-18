@@ -12,61 +12,33 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
-public class ExerciseList extends Activity {
+public class ExerciseView extends Activity{
+	
 
-	ArrayList<Exercise> e;
-	ArrayList<String> es;
-	ArrayAdapter adapter;
-	String id;
+	int id;
+	String name;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.exerciselist);
+        setContentView(R.layout.exerciseview);
         
-        ListView listview = (ListView)findViewById(R.id.list);
+        
+         
+       // ListView listview = (ListView)findViewById(R.id.list);
+        TextView textview = (TextView)findViewById(R.id.steps);
         Bundle extras = getIntent().getExtras();
 		if(extras != null){
-			id = extras.getString("id");
+			id = extras.getInt("id");
+			name = extras.getString("name");
 		} 
 		//Toast.makeText(getApplicationContext(),"exe"+ id, Toast.LENGTH_SHORT).show();
 		ExerciseHelper db = new ExerciseHelper(this);
-        e = new ArrayList<Exercise>();
-        es = new ArrayList<String>();
-   	 e = db.getExerciseByMuscle(id);
-   	for (Exercise m : e) {
-           String log = " Name: " + m.getName();
-           es.add(m.getName());		// puts the String name in the ArrayList<String>
-               // Writing Muscles to log
-       Log.d("Name: ", log);
-   }
-   	adapter = new ArrayAdapter<String>(this, R.layout.list_item , es);
-   	listview.setAdapter(adapter);
-   	listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
-			String item = (String) parent.getItemAtPosition(position);
-			int idM	= e.get(position).getId();
-			String name = e.get(position).getName();
-			
-			//Toast.makeText(getApplicationContext(), idValue, Toast.LENGTH_SHORT).show();
-			Intent i = new Intent("edu.utep.cs.cs4390.getfit.ExerciseView");
-			i.putExtra("id", idM);
-			i.putExtra("name", name);
-			startActivity(i);
-			
-
-			}
-		
-		
-	});
-    	
-    	
-    }
+		String text = db.getExercise(id).getSteps();
+		textview.setText(text);
+	}
 	
 
     
@@ -91,4 +63,6 @@ public class ExerciseList extends Activity {
     }
 
 	
+
+
 }
