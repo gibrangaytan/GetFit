@@ -114,10 +114,10 @@ public class ExerciseHelper extends SQLiteOpenHelper{
     }
     
 	//getting all exercises for a muscle
-    public ArrayList<Exercise> getExerciseByMuscle(String muscle){
+    public ArrayList<Exercise> getExerciseByMuscle(String muscleID){
     	ArrayList<Exercise> exerciseByMuscle = new ArrayList<Exercise>();
     	//Select query
-    	String selectQuery = "SELECT * FROM exercises WHERE id IN (SELECT exercises_id FROM exercises_has_muscles WHERE muscles_id IN (SELECT id FROM muscles WHERE name'"+muscle+"'));";
+    	String selectQuery = "SELECT e.*,em.muscles_id FROM exercises as e LEFT JOIN exercises_has_muscles as em ON e.id = em.exercises_id where em.muscles_id = "+muscleID+";";
     	
     	SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
