@@ -158,7 +158,7 @@ public class ExerciseHelper extends SQLiteOpenHelper{
         public ArrayList<Media> getMedia(String exerciseID){
         	ArrayList<Media> mediaList = new ArrayList<Media>();
        	//Select query
-    	String selectQuery = "SELECT * FROM exercises_has_media AS em LEFT JOIN media AS m ON em.media_id = m.id WHERE em.id="+exerciseID+";";
+    	String selectQuery = "SELECT * FROM media AS m LEFT JOIN exercises_has_media AS em ON em.media_id = m.id WHERE em.id="+exerciseID+";";
         	
         	SQLiteDatabase db = this.getReadableDatabase();
            Cursor cursor = db.rawQuery(selectQuery, null);

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Gallery;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +26,8 @@ public class ExerciseView extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exerciseview);
         
-        
+        Gallery gallery = (Gallery)findViewById(R.id.gallery);
+        gallery.setAdapter(new ImageAdapter(this));
          
        // ListView listview = (ListView)findViewById(R.id.list);
         TextView textview = (TextView)findViewById(R.id.steps);
