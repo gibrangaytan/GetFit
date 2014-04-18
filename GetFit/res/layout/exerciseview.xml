@@ -8,6 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/black"
     tools:context="edu.utep.cs.cs4390.getfit.ExerciseView" >
+
     
     
      <TextView 
@@ -27,5 +28,20 @@
 	         android:layout_marginTop="85dp"
 	         android:text="CopyRight of JeFit.com"
 	         android:textColor="@color/white" />
+
+	     <LinearLayout
+	         android:id="@+id/linearlayout"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_alignLeft="@+id/steps"
+	         android:layout_alignTop="@+id/steps"
+	         android:orientation="vertical" >
+
+	         <Gallery
+	             android:id="@+id/gallery"
+	             android:layout_width="match_parent"
+	             android:layout_height="wrap_content" />
+
+	     </LinearLayout>
     
     </RelativeLayout>
