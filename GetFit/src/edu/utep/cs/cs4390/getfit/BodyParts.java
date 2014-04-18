@@ -11,11 +11,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 
@@ -44,7 +46,20 @@ public class BodyParts extends Activity {
     }
     	adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , mu);
     	listview.setAdapter(adapter);
-    //	listview.setOnItem
+    	listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				String item = (String) parent.getItemAtPosition(position);
+				
+				//Toast.makeText(getApplicationContext(),item , Toast.LENGTH_SHORT).show();
+			//	Intent i = new Intent(this, ExcerciseList.)
+
+				}
+			
+    		
+		});
     	
     	
     }

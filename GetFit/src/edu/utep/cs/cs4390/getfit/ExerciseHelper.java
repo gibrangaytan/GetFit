@@ -112,6 +112,28 @@ public class ExerciseHelper extends SQLiteOpenHelper{
         // return contact list
         return muscleList;
     }
+    
+  //getting all exercises for a muscle
+        public ArrayList<Exercise> getExerciseByMuscle(String muscle){
+        	ArrayList<Exercise> exerciseByMuscle = new ArrayList<Exercise>();
+       	//Select query
+    	String selectQuery = "SELECT * FROM exercises WHERE id IN (SELECT exercises_id FROM exercises_has_muscles WHERE muscles_id IN (SELECT id FROM muscles WHERE name'"+muscle+"'));";
+        	
+        	SQLiteDatabase db = this.getReadableDatabase();
+           Cursor cursor = db.rawQuery(selectQuery, null);
+     
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    Exercise exercise = new Exercise();
+                    exercise.setName(cursor.getString(1));
+                    // Adding contact to list
+                    exerciseByMuscle.add(exercise);
+                } while (cursor.moveToNext());
+            }
+            db.close();
+            return exerciseByMuscle;
+        }
 	
 
 }
