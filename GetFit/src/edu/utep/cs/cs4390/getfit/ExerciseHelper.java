@@ -155,6 +155,27 @@ public class ExerciseHelper extends SQLiteOpenHelper{
             return exercise;
         } 
         
+        public ArrayList<Media> getMedia(String exerciseID){
+        	ArrayList<Media> mediaList = new ArrayList<Media>();
+       	//Select query
+    	String selectQuery = "SELECT * FROM exercises_has_media AS em LEFT JOIN media AS m ON em.media_id = m.id WHERE em.id="+exerciseID+";";
+        	
+        	SQLiteDatabase db = this.getReadableDatabase();
+           Cursor cursor = db.rawQuery(selectQuery, null);
+     
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    Media media = new Media();
+                    media.setId(cursor.getInt(0));
+                    media.setUrl(cursor.getString(1));
+                    // Adding contact to list
+                    mediaList.add(media);
+                } while (cursor.moveToNext());
+            }
+            db.close();
+            return mediaList;
+        }
 
 
 }
