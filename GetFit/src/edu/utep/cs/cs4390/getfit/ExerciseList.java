@@ -30,7 +30,7 @@ public class ExerciseList extends Activity {
         Bundle extras = getIntent().getExtras();
 		if(extras != null){
 			id = extras.getString("id");
-		}
+		} 
 		//Toast.makeText(getApplicationContext(),"exe"+ id, Toast.LENGTH_SHORT).show();
 		ExerciseHelper db = new ExerciseHelper(this);
         e = new ArrayList<Exercise>();

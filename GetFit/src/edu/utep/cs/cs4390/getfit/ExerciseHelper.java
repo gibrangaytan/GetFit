@@ -88,7 +88,7 @@ public class ExerciseHelper extends SQLiteOpenHelper{
         	Log.d("getMuscle("+id+")", muscle.name());
         	
         return muscle;
-    }
+    } 
     // Getting All Contacts
     public ArrayList<Muscle> getAllMuscles() {
         ArrayList<Muscle> muscleList = new ArrayList<Muscle>();
