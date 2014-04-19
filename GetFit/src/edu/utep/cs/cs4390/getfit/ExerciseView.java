@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.ImageReader;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Gallery;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,14 +23,18 @@ public class ExerciseView extends Activity{
 
 	int id;
 	String name;
+	LinearLayout gallery;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exerciseview);
         
-        Gallery gallery = (Gallery)findViewById(R.id.gallery);
-        gallery.setAdapter(new ImageAdapter(this));
+        gallery = (LinearLayout)findViewById(R.id.gallery);
+        ImageView image = new ImageView(ExerciseView.this);
+        image.setBackgroundResource(R.drawable.benchpresssmall1);
+        gallery.addView(image);
+        
          
        // ListView listview = (ListView)findViewById(R.id.list);
         TextView textview = (TextView)findViewById(R.id.steps);
