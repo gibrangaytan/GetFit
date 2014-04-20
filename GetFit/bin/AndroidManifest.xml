@@ -46,7 +46,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+        <activity
+            android:label="Profiles"
+            android:name=".Profiles" > 
+            <intent-filter >
+                <action android:name="edu.utep.cs.cs4390.getfit.Profiles"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

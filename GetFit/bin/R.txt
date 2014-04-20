@@ -291,7 +291,7 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f050048
+int id action_settings 0x7f05004e
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
@@ -326,6 +326,8 @@ int id never 0x7f050009
 int id none 0x7f050010
 int id normal 0x7f050000
 int id profile 0x7f050045
+int id profileImageView 0x7f050048
+int id profileNameTextView 0x7f050049
 int id progress_circular 0x7f050018
 int id progress_horizontal 0x7f050019
 int id radio 0x7f05002f
@@ -347,6 +349,10 @@ int id split_action_bar 0x7f05001e
 int id steps 0x7f050042
 int id submit_area 0x7f050039
 int id tabMode 0x7f050002
+int id textView1 0x7f05004a
+int id textView2 0x7f05004b
+int id textView3 0x7f05004c
+int id textView4 0x7f05004d
 int id title 0x7f05002b
 int id top_action_bar 0x7f050020
 int id up 0x7f050021
@@ -383,7 +389,8 @@ int layout exerciselist 0x7f03001a
 int layout exerciseview 0x7f03001b
 int layout fragment_main 0x7f03001c
 int layout list_item 0x7f03001d
-int layout support_simple_spinner_dropdown_item 0x7f03001e
+int layout profiles 0x7f03001e
+int layout support_simple_spinner_dropdown_item 0x7f03001f
 int menu main 0x7f0c0000
 int string abc_action_bar_home_description 0x7f0a0001
 int string abc_action_bar_up_description 0x7f0a0002
@@ -444,6 +451,7 @@ int style TextAppearance_AppCompat_Widget_PopupMenu_Large 0x7f0b002e
 int style TextAppearance_AppCompat_Widget_PopupMenu_Small 0x7f0b002f
 int style TextAppearance_Widget_AppCompat_Base_ExpandedMenu_Item 0x7f0b0062
 int style TextAppearance_Widget_AppCompat_ExpandedMenu_Item 0x7f0b0028
+int style TextStyle 0x7f0b008d
 int style Theme_AppCompat 0x7f0b0077
 int style Theme_AppCompat_Base_CompactMenu 0x7f0b0083
 int style Theme_AppCompat_Base_CompactMenu_Dialog 0x7f0b0084

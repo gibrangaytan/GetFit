@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
@@ -37,7 +38,17 @@ public class MainActivity extends ActionBarActivity {
         }*/
     }
     public void onClick(View v){
-    	startActivity(new Intent("edu.utep.cs.cs4390.getfit.BodyParts"));
+    	int sourceId = v.getId();
+    	switch(sourceId){
+    	case R.id.exercises:
+    		startActivity(new Intent("edu.utep.cs.cs4390.getfit.BodyParts"));
+    		break;
+    	case R.id.meals:
+    		break;
+    	case R.id.profile:
+    		startActivity(new Intent("edu.utep.cs.cs4390.getfit.Profiles"));
+    		break;
+    	};
     }
 
 
