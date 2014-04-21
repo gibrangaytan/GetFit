@@ -46,6 +46,23 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+                <activity
+            android:label="Meals"
+            android:name=".Meals" > 
+            <intent-filter >
+                <action android:name="edu.utep.cs.cs4390.getfit.Meals"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+                <activity
+            android:label="MealView"
+            android:name=".MealView" > 
+            <intent-filter >
+                <action android:name="edu.utep.cs.cs4390.getfit.MealView"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         
     </application>
 
