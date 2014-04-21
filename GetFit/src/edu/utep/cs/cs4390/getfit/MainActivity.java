@@ -28,16 +28,12 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
         
-        /*ExerciseHelper db = new ExerciseHelper(this);
-        Log.d("Reading: ", "Reading all the exercises..");
-        List<Exercise> excercises = db.getAllExercises();
-        for (Exercise cn : excercises){
-        	String log = "Id: "+cn.getId()+" Name: "+cn.getName();
-        	Log.d("Name: ",log);
-        }*/
     }
     public void onClick(View v){
     	startActivity(new Intent("edu.utep.cs.cs4390.getfit.BodyParts"));
+    }
+    public void onClickMeal(View v){
+    	startActivity(new Intent("edu.utep.cs.cs4390.getfit.Meals"));
     }
 
 

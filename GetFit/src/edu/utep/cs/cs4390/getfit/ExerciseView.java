@@ -32,8 +32,11 @@ public class ExerciseView extends Activity{
         
         gallery = (LinearLayout)findViewById(R.id.gallery);
         ImageView image = new ImageView(ExerciseView.this);
+        ImageView image2 = new ImageView(ExerciseView.this);
         image.setBackgroundResource(R.drawable.benchpresssmall1);
+        image2.setBackgroundResource(R.drawable.benchpresssmall2);
         gallery.addView(image);
+        gallery.addView(image2);
         
          
        // ListView listview = (ListView)findViewById(R.id.list);

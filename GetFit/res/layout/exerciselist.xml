@@ -9,6 +9,12 @@
     android:background="@color/black"
     tools:context="edu.utep.cs.cs4390.getfit.ExerciseList" >
 
+<!--     <SearchView 
+        android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:id="@+id/search"
+		android:layout_alignParentTop="true" /> -->
+    
    <ListView
         android:id="@+id/list"
         

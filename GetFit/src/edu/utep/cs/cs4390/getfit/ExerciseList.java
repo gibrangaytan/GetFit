@@ -2,10 +2,15 @@ package edu.utep.cs.cs4390.getfit;
 
 import java.util.ArrayList;
 
+import android.R.menu;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +30,29 @@ public class ExerciseList extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exerciselist);
+        
+        
+        
+        
+       
+//            MenuItem searchItem = menu.findItem(R.id.list);
+//            SearchManager searchManager =
+//                    (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//            android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(searchItem);
+//
+//            searchView.setSearchableInfo(
+//                    searchManager.getSearchableInfo(getComponentName()));
+//            searchView.setIconifiedByDefault(false);
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         ListView listview = (ListView)findViewById(R.id.list);
         Bundle extras = getIntent().getExtras();
@@ -67,7 +95,6 @@ public class ExerciseList extends Activity {
     	
     	
     }
-	
 
     
     @Override

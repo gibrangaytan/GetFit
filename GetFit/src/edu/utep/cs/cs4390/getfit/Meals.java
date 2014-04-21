@@ -17,8 +17,8 @@ public class Meals extends Activity {
 	
 	ArrayList<String> meals;
 	ArrayAdapter adapter;
-	
-	 protected void onCreate(Bundle savedInstanceState) {
+	 
+	 protected void onCreate(Bundle savedInstanceState) { 
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.meals);
 	        

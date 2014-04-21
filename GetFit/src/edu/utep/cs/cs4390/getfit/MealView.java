@@ -23,7 +23,7 @@ public class MealView extends Activity {
         view = (LinearLayout) findViewById(R.id.imageView);
         ImageView imageMeal = new ImageView(MealView.this);
         imageMeal.setBackgroundResource(R.drawable.chickem);
-        view.addView(imageMeal);
+        view.addView(imageMeal); 
         
         TextView textview = (TextView)findViewById(R.id.instructions);
         textview.setText("Ingredients: 1/4 cup all-purpose flour for coating, 1/2 teaspoon salt, 1/4 teaspoon ground black pepper"
