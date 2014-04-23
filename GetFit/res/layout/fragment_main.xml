@@ -24,7 +24,10 @@
         android:layout_alignLeft="@+id/meals"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="38dp"
-        android:text="Profile" />
+        android:text="Profile" 
+        android:onClick="onClickProfile"
+        
+        />
 
     <Button
         android:id="@+id/exercises"
@@ -43,6 +46,8 @@
         android:layout_above="@+id/profile"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
-        android:text="Meals" />
+        android:text="Meals" 
+        android:onClick="onClickMeals"
+        />
 
 </RelativeLayout>

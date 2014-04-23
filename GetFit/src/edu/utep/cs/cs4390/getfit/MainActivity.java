@@ -37,8 +37,17 @@ public class MainActivity extends ActionBarActivity {
         }*/
     }
     public void onClick(View v){
-    	startActivity(new Intent("edu.utep.cs.cs4390.getfit.BodyParts"));
+
+    		startActivity(new Intent("edu.utep.cs.cs4390.getfit.BodyParts"));
     }
+    public void onClickMeals(View v){
+    		startActivity(new Intent("edu.utep.cs.cs4390.getfit.Meals"));
+    }
+    public void onClickProfile(View v){
+    		startActivity(new Intent("edu.utep.cs.cs4390.getfit.Profiles"));
+   	}
+    
+    
 
 
     @Override

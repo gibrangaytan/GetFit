@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/getfit"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -43,6 +43,30 @@
             android:name=".ExerciseView" > 
             <intent-filter >
                 <action android:name="edu.utep.cs.cs4390.getfit.ExerciseView"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="Meals"
+            android:name=".Meals" > 
+            <intent-filter >
+                <action android:name="edu.utep.cs.cs4390.getfit.Meals"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="MealView"
+            android:name=".MealView" > 
+            <intent-filter >
+                <action android:name="edu.utep.cs.cs4390.getfit.MealView"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="Profiles"
+            android:name=".Profiles" > 
+            <intent-filter >
+                <action android:name="edu.utep.cs.cs4390.getfit.Profiles"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
