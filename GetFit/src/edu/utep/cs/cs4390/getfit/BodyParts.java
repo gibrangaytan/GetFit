@@ -40,10 +40,7 @@ public class BodyParts extends Activity {
          mu = new ArrayList<String>();
     	 muscle = db.getAllMuscles();
     	for (Muscle m : muscle) {
-            String log = " Name: " + m.name();
             mu.add(m.name()); 		// puts the String name in the ArrayList<String>
-                // Writing Muscles to log
-        Log.d("Name: ", log);
     }
     	adapter = new ArrayAdapter<String>(this, R.layout.list_item, mu);
     	listview.setAdapter(adapter);

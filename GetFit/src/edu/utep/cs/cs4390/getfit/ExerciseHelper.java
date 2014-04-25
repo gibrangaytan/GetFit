@@ -61,34 +61,11 @@ public class ExerciseHelper extends SQLiteOpenHelper{
 	            exercisesList.add(exercise);
 	        } while (cursor.moveToNext());
 	    }
-	 
+	 db.close();
 	    // return contact list
 	    return exercisesList;
 	}
 	
-    Muscle getMuscle(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
- 
-        Cursor cursor = db.query("muscles",
-        		new String[] {"name"},
-        		"id = ?",
-        		new String[]{String.valueOf(id)},
-        		null,
-        		null,
-        		null,
-        		null);
-        		
-        		
-        if (cursor != null)
-            cursor.moveToFirst();
-        	
-        	Muscle muscle = new Muscle();
-        	muscle.setName(cursor.getString(0));
-
-        	Log.d("getMuscle("+id+")", muscle.name());
-        	
-        return muscle;
-    } 
     
     // Getting All Contacts
     public ArrayList<Muscle> getAllMuscles() {
@@ -151,14 +128,14 @@ public class ExerciseHelper extends SQLiteOpenHelper{
             	Exercise exercise = new Exercise(Integer.parseInt(cursor.getString(0)),cursor.getString(1),
             			cursor.getString(2),Integer.parseInt(cursor.getString(3)),Integer.parseInt(cursor.getString(4)),
             			Integer.parseInt(cursor.getString(5)));
-            	            	           	
+            	            db.close();	           	
             return exercise;
         } 
         
         public ArrayList<Media> getMedia(String exerciseID){
         	ArrayList<Media> mediaList = new ArrayList<Media>();
        	//Select query
-    	String selectQuery = "SELECT * FROM media AS m LEFT JOIN exercises_has_media AS em ON em.media_id = m.id WHERE em.id="+exerciseID+";";
+    	String selectQuery = "SELECT * FROM media AS m LEFT JOIN exercises_has_media AS em ON em.media_id = m.id WHERE em.exercises_id="+exerciseID+";";
         	
         	SQLiteDatabase db = this.getReadableDatabase();
            Cursor cursor = db.rawQuery(selectQuery, null);

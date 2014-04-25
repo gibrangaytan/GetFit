@@ -33,7 +33,6 @@
     android:fillViewport="true"
     android:scrollbars="none"
     android:layout_below="@+id/galleryview"
-    android:layout_marginBottom="40dp"
      >
     <LinearLayout
         android:id="@+id/inner"
@@ -54,17 +53,5 @@
 
     </LinearLayout>
 </ScrollView>
-<LinearLayout 
-  	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:layout_below="@+id/ScrollView01"
-        >
-     <TextView
-            android:id="@+id/jefit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CopyRight of JeFit.com"
-            android:textColor="@color/white" />
-     </LinearLayout>
+
 </RelativeLayout>

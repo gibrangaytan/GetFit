@@ -37,10 +37,7 @@ public class ExerciseList extends Activity {
         es = new ArrayList<String>();
    	 e = db.getExerciseByMuscle(id);
    	for (Exercise m : e) {
-           String log = " Name: " + m.getName();
            es.add(m.getName());		// puts the String name in the ArrayList<String>
-               // Writing Muscles to log
-       Log.d("Name: ", log);
    }
    	adapter = new ArrayAdapter<String>(this, R.layout.list_item , es);
    	listview.setAdapter(adapter);
