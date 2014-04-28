@@ -34,6 +34,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         
         if(!checkDataBase()){
+        	File picDirectory = new File("data/data/edu.utep.cs.cs4390.getfit/databases");
+        	picDirectory.mkdirs();
         	Log.i("Database",
                     "New database is being copied to device!");
             byte[] buffer = new byte[1234945];
