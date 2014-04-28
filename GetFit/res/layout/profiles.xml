@@ -15,6 +15,15 @@
         android:contentDescription="profile image"
         android:src="@drawable/getfit"
         android:layout_marginBottom="10sp"/>
+    
+    <Button 
+	    android:id="@+id/editbutton"
+	    android:text="Edit Profile"
+	    android:layout_gravity="right"
+	    android:layout_marginRight="30sp"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:onClick="onClick"/>
 
 	<TextView
 	    android:id="@+id/profileNameTextView"
@@ -53,5 +62,16 @@
 	    android:id="@+id/textView4"
 	    style="@style/TextStyle"
 	    android:gravity="center" 
-	    android:text="BodyFat: 11%"/> 
+	    android:text="BodyFat: 11%"
+	    android:layout_marginBottom="20sp" /> 
+
+	<Button 
+	    android:id="@+id/routines"
+	    android:text="Routines"
+	    android:gravity="center"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:onClick="onClickRoutines"
+	    android:layout_gravity="center"
+	    />
 </LinearLayout>

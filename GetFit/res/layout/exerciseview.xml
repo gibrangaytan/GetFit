@@ -22,36 +22,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/ScrollView01"
-            
             android:orientation="horizontal" >
         </LinearLayout>
     </HorizontalScrollView>
-<ScrollView
-    android:id="@+id/ScrollView01"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:fillViewport="true"
-    android:scrollbars="none"
-    android:layout_below="@+id/galleryview"
-     >
-    <LinearLayout
-        android:id="@+id/inner"
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="72dp"
-         >
+        android:layout_below="@+id/galleryview"
+        android:fillViewport="true"
+        android:scrollbars="none" >
 
-        <TextView
-            android:id="@+id/steps"
+        <LinearLayout
+            android:id="@+id/inner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/galleryview"
-            android:textColor="@color/white" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="72dp" >
 
-
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/steps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/galleryview"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

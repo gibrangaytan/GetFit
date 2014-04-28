@@ -23,54 +23,86 @@
             </intent-filter>
         </activity>
         <activity
-            android:label="BodyParts"
-            android:name=".BodyParts" >
-            <intent-filter >
-                <action android:name="edu.utep.cs.cs4390.getfit.BodyParts"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-         <activity
-            android:label="ExerciseList"
-            android:name=".ExerciseList" > 
-            <intent-filter >
-                <action android:name="edu.utep.cs.cs4390.getfit.ExerciseList"/>
+            android:name=".BodyParts"
+            android:label="BodyParts" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.BodyParts" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:label="ExerciseView"
-            android:name=".ExerciseView" > 
-            <intent-filter >
-                <action android:name="edu.utep.cs.cs4390.getfit.ExerciseView"/>
+            android:name=".ExerciseList"
+            android:label="ExerciseList" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.ExerciseList" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:label="Meals"
-            android:name=".Meals" > 
-            <intent-filter >
-                <action android:name="edu.utep.cs.cs4390.getfit.Meals"/>
+            android:name=".ExerciseView"
+            android:label="ExerciseView" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.ExerciseView" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:label="MealView"
-            android:name=".MealView" > 
-            <intent-filter >
-                <action android:name="edu.utep.cs.cs4390.getfit.MealView"/>
+            android:name=".Meals"
+            android:label="Meals" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.Meals" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:label="Profiles"
-            android:name=".Profiles" > 
-            <intent-filter >
-                <action android:name="edu.utep.cs.cs4390.getfit.Profiles"/>
+            android:name=".MealView"
+            android:label="MealView" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.MealView" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+        <activity
+            android:name=".Profiles"
+            android:label="Profiles" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.Profiles" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RoutinesList"
+            android:label="RoutinesList" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.RoutinesList" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RoutineView"
+            android:label="RoutineView" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.RoutineView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddRoutine"
+            android:label="AddRoutine" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.AddRoutine" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

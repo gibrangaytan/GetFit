@@ -1,7 +1,9 @@
 package edu.utep.cs.cs4390.getfit;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class Profiles extends Activity {
 	@Override
@@ -12,4 +14,7 @@ public class Profiles extends Activity {
         
     	
     }
+	public void onClickRoutines(View v){
+		startActivity(new Intent("edu.utep.cs.cs4390.getfit.RoutinesList"));
+	}
 }
