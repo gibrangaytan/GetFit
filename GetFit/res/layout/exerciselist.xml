@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.utep.cs.cs4390.getfit.ExerciseList" >
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/myautocomplete"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

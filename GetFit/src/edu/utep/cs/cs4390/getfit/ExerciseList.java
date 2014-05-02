@@ -23,16 +23,17 @@ public class ExerciseList extends Activity {
 	ArrayList<Exercise> e;
 	ArrayList<String> es;
 	ArrayAdapter adapter;
+	ArrayAdapter adapter2;
 	String id;
-	EditText myAutoComplete;
+	AutoCompleteTextView myAutoComplete;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.exerciselist);
-		myAutoComplete = (EditText) findViewById(R.id.myautocomplete);
+		myAutoComplete = (AutoCompleteTextView) findViewById(R.id.myautocomplete);
 
-		ListView listview = (ListView) findViewById(R.id.list);
+		final ListView listview = (ListView) findViewById(R.id.list);
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			id = extras.getString("id");
@@ -49,13 +50,27 @@ public class ExerciseList extends Activity {
 		}
 		adapter = new ArrayAdapter<String>(this, R.layout.list_item, es);
 		listview.setAdapter(adapter);
+		adapter2 = new ArrayAdapter<String>(this, R.layout.list_item, es);
+		myAutoComplete.setAdapter(adapter2);
+		myAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				// TODO Auto-generated method stub
+				String str = myAutoComplete.getText().toString();
+				 int po = es.indexOf(str);
+				  listview.setSelection(po);
+			}
+			
+		});
 
 		myAutoComplete.addTextChangedListener(new TextWatcher() {
 
 			public void onTextChanged(CharSequence cs, int arg1, int arg2,
 					int arg3) {
 				// When user changed the Text
-				ExerciseList.this.adapter.getFilter().filter(cs);
+				//ExerciseList.this.adapter.getFilter().filter(cs);
 			}
 
 			@Override

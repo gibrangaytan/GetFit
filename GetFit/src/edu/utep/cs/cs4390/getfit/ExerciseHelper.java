@@ -57,8 +57,8 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 	    return checkDB != null ? true : false;
 	}
 
-	public List<Exercise> getAllExercises() {
-		List<Exercise> exercisesList = new ArrayList<Exercise>();
+	public ArrayList<Exercise> getAllExercises() {
+		ArrayList<Exercise> exercisesList = new ArrayList<Exercise>();
 		String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
 
 		SQLiteDatabase db = this.getReadableDatabase();
