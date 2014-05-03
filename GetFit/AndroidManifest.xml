@@ -77,6 +77,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".EditProfiles"
+            android:label="EditProfiles" 
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.EditProfiles" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".RoutinesList"
             android:label="RoutinesList" >
             <intent-filter>
