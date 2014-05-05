@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:completionThreshold="1"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:hint="Search Exercise" />
 
     <ListView
         android:id="@+id/list"

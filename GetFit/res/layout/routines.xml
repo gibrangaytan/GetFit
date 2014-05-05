@@ -16,6 +16,7 @@
         android:completionThreshold="1"
         android:textColor="@color/black"
         android:layout_marginTop="50sp"
+        android:hint="Search Routines"
          />
 
     <ListView
@@ -39,5 +40,18 @@
         android:text="Add Routine"
         android:layout_alignParentTop="true"
         android:onClick="onClick"/>
+    <EditText 
+        android:id="@+id/editdelete"
+        android:hint="Routine to delete"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"/>
+    <Button 
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Delete"
+        android:layout_toRightOf="@+id/editdelete"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClickDelete"/>
 
 </RelativeLayout>

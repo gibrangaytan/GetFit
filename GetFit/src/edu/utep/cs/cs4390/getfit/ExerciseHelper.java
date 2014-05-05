@@ -236,5 +236,45 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		
 		
 	}
+	public void insertRoutineSpec(String exerciseId, String name, String reps, String sets, String weight){
+		int id;
+		String selectId = "SELECT id FROM routines WHERE name = '"+ name +"';";
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectId, null);
+		if (cursor.moveToFirst()) {
+				id = cursor.getInt(0);
+				String insertQuery = "INSERT INTO routines_has_exercises "
+						+ "VALUES('"+exerciseId+"','"+id+"','"+sets+"','"+reps+"','"+weight+"');";
+				db.execSQL(insertQuery);
+		}
+		
+		
+	}
+	public String getIdFromExerciseName(String name){
+		String id = "";
+		String selectId = "SELECT id FROM exercises WHERE name = '"+ name +"';";
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectId, null);
+		if (cursor.moveToFirst()) {
+				id = cursor.getString(0);
+		}
+		return id;
+		
+		
+	}
+	public void deleteRoutine(String name){
+		String getid = "SELECT id FROM routines WHERE name = '"+ name +"';";
+		
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(getid, null);
+		if (cursor.moveToFirst()) {
+			getid = cursor.getString(0);
+		}
+		String delete = "DELETE FROM routines WHERE name ='"+name+"';";
+		String delete2 = "DELETE FROM routines_has_exercises WHERE routines_id='"+getid+"';";
+		db.execSQL(delete);
+		db.execSQL(delete2);
+	}
+	
 
 }

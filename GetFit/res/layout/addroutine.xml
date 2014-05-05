@@ -9,19 +9,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.utep.cs.cs4390.getfit.AddRoutine" >
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/submit_r"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="NAME:"
-        android:textColor="@color/white" />
+        android:text="Next" 
+        android:onClick="onClick"/>
+
+
 
     <EditText
         android:id="@+id/nameroutine"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/name" />
+        android:layout_below="@+id/submit_r"
+        android:hint="Enter Name of routine" />
 
     <AutoCompleteTextView
         android:id="@+id/myautocompleteR"
@@ -29,20 +32,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameroutine"
         android:completionThreshold="1"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:hint="Search Exercise" />
 
     <ListView
         android:id="@+id/listexeR"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myautocompleteR"
         android:background="@android:color/transparent"
         android:cacheColorHint="@android:color/transparent"
         android:divider="#CCCCCC"
         android:dividerHeight="1dp"
-        android:paddingLeft="2dp" 
-        android:layout_below="@+id/myautocompleteR">
+        android:paddingLeft="2dp" >
     </ListView>
 
 </RelativeLayout>

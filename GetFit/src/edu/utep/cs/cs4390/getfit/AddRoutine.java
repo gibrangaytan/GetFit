@@ -1,6 +1,7 @@
 package edu.utep.cs.cs4390.getfit;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import android.app.Activity;
@@ -23,12 +24,14 @@ public class AddRoutine extends Activity {
 	ArrayAdapter adapter;
 	ArrayAdapter adapter2;
 	AutoCompleteTextView myAutoComplete;
-
+	long[] l;
+	EditText name;
+	
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addroutine);
 		myAutoComplete = (AutoCompleteTextView) findViewById(R.id.myautocompleteR);
-
+		name = (EditText) findViewById(R.id.nameroutine);
       final  ListView listview = (ListView) findViewById(R.id.listexeR);
 		ExerciseHelper db = new ExerciseHelper(this);
 		e = new ArrayList<Exercise>();
@@ -65,18 +68,18 @@ public class AddRoutine extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-			long[] l =	listview.getCheckItemIds();
-			//if(listview.getCh)
-			
-			Toast.makeText(getApplicationContext(), "po: "+ l.length , Toast.LENGTH_SHORT).show();
-			Toast.makeText(getApplicationContext(), "l:" + l[0], Toast.LENGTH_SHORT).show();
-
-				
-
+			 l =	listview.getCheckItemIds();
 
 			}
 
 		});
 		
 }
+	public void onClick(View v){
+		Intent i = new Intent("edu.utep.cs.cs4390.getfit.AddRoutineSpec");
+		String n = name.getText().toString();
+		i.putExtra("l", l);
+		i.putExtra("name", n);
+		startActivity(i);
+	}
 }

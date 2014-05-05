@@ -19,6 +19,9 @@ public class RoutinesList extends Activity {
 	ArrayList<String> ru;
 	ArrayAdapter adapter;
 	EditText myAutoComplete;
+    ExerciseHelper db = new ExerciseHelper(this);
+    EditText nameEdit;
+
 	
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +29,6 @@ public class RoutinesList extends Activity {
         myAutoComplete = (EditText) findViewById(R.id.myautocompleteroutines);
            ListView listview = (ListView)findViewById(R.id.listroutines);
 
-            ExerciseHelper db = new ExerciseHelper(this);
             routine = new ArrayList<Routine>();
              ru = new ArrayList<String>();
              routine = db.getRoutines();
@@ -81,6 +83,13 @@ public class RoutinesList extends Activity {
 	
 	public void onClick(View v){
 		startActivity(new Intent("edu.utep.cs.cs4390.getfit.AddRoutine"));
+		
+	}
+	public void onClickDelete(View v){
+		nameEdit = (EditText) findViewById(R.id.editdelete);
+		String name = nameEdit.getText().toString();
+		db.deleteRoutine(name);
+		startActivity(new Intent("edu.utep.cs.cs4390.getfit.RoutinesList"));
 		
 	}
 

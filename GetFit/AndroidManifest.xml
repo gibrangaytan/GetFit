@@ -103,6 +103,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+                <activity
+            android:name=".AddRoutineSpec"
+            android:label="AddRoutineSpec" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.AddRoutineSpec" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
