@@ -236,5 +236,27 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		
 		
 	}
+	public ArrayList<Measurable> getMeasurables() {
+		ArrayList<Measurable> measurableList = new ArrayList<Measurable>();
+		// Select query
+		String selectQuery = "SELECT * FROM measurables;";
+
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, null);
+
+		// looping through all rows and adding to list
+		if (cursor.moveToFirst()) {
+			do {
+				Measurable measurable = new Measurable();
+				measurable.setId(cursor.getInt(0));
+				measurable.setName(cursor.getString(1));
+				measurable.setMeasurement(cursor.getInt(2));
+				// Adding contact to list
+				measurableList.add(measurable);
+			} while (cursor.moveToNext());
+		}
+		db.close();
+		return measurableList;
+	}
 
 }
