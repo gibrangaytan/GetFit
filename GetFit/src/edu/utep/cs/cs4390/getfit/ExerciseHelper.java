@@ -78,6 +78,7 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				exercisesList.add(exercise);
 			} while (cursor.moveToNext());
 		}
+		cursor.close();
 		db.close();
 		// return contact list
 		return exercisesList;
@@ -102,6 +103,7 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				muscleList.add(muscle);
 			} while (cursor.moveToNext());
 		}
+		cursor.close();
 		db.close();
 
 		// return contact list
@@ -128,6 +130,7 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				exerciseByMuscle.add(exercise);
 			} while (cursor.moveToNext());
 		}
+		cursor.close();
 		db.close();
 		return exerciseByMuscle;
 	}
@@ -147,6 +150,7 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				cursor.getString(1), cursor.getString(2),
 				Integer.parseInt(cursor.getString(3)), Integer.parseInt(cursor
 						.getString(4)), Integer.parseInt(cursor.getString(5)));
+		cursor.close();
 		db.close();
 		return exercise;
 	}
@@ -170,6 +174,7 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				mediaList.add(media);
 			} while (cursor.moveToNext());
 		}
+		cursor.close();
 		db.close();
 		return mediaList;
 	}
@@ -192,6 +197,7 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				routineList.add(routine);
 			} while (cursor.moveToNext());
 		}
+		cursor.close();
 		db.close();
 		return routineList;
 	}
@@ -220,6 +226,7 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				routineExercisesList.add(routines);
 			} while (cursor.moveToNext());
 		}
+		cursor.close();
 		db.close();
 		return routineExercisesList;
 	}
@@ -233,8 +240,8 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 				String insertQuery = "INSERT INTO routines VALUES("+id+",'"+name+"');";
 				db.execSQL(insertQuery);
 		}
-		
-		
+		cursor.close();
+		db.close();
 	}
 	public void insertRoutineSpec(String exerciseId, String name, String reps, String sets, String weight){
 		int id;
@@ -247,8 +254,8 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 						+ "VALUES('"+exerciseId+"','"+id+"','"+sets+"','"+reps+"','"+weight+"');";
 				db.execSQL(insertQuery);
 		}
-		
-		
+		cursor.close();
+		db.close();
 	}
 	public String getIdFromExerciseName(String name){
 		String id = "";
@@ -258,6 +265,8 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		if (cursor.moveToFirst()) {
 				id = cursor.getString(0);
 		}
+		cursor.close();
+		db.close();
 		return id;
 		
 		
@@ -274,6 +283,8 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		String delete2 = "DELETE FROM routines_has_exercises WHERE routines_id='"+getid+"';";
 		db.execSQL(delete);
 		db.execSQL(delete2);
+		cursor.close();
+		db.close();
 	}
 	
 

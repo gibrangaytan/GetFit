@@ -90,7 +90,7 @@ public class RoutinesList extends Activity {
 		String name = nameEdit.getText().toString();
 		db.deleteRoutine(name);
 		startActivity(new Intent("edu.utep.cs.cs4390.getfit.RoutinesList"));
-		
+
 	}
 
 }
