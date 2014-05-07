@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.utep.cs.cs4390.getfit.EditProfiles" >
+
+    <!--
+         ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editProfilesButton"
+        android:layout_marginBottom="10sp"
+        android:contentDescription="profile image"
+        android:src="@drawable/getfit" /
+    -->
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/profileNameEditText"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:background="@color/black"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textSize="25sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age:"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ageEditText"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:background="@color/black"
+            android:ems="4"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="25sp" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </TableRow>
+
+    <Button
+        android:id="@+id/editProfilesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:onClick="onClickSubmit"
+        android:text="Submit" />
+
+    <ListView
+        android:id="@+id/editProfileListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</TableLayout>
