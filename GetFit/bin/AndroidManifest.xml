@@ -5,8 +5,11 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="8"
         android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -77,6 +80,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".EditProfiles"
+            android:label="EditProfiles"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="edu.utep.cs.cs4390.getfit.EditProfiles" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".RoutinesList"
             android:label="RoutinesList" >
             <intent-filter>
@@ -103,7 +116,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-                <activity
+        <activity
             android:name=".AddRoutineSpec"
             android:label="AddRoutineSpec" >
             <intent-filter>
@@ -112,6 +125,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name="com.facebook.LoginActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
     </application>
 
 </manifest>
