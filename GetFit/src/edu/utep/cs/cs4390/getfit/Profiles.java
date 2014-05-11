@@ -10,7 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+/**
+ * Displays the user's profile information. This includes the user's name, age, 
+ * weight, height, and other measurements of body parts. Also links to edit Profiles 
+ * and routines
+ */
 public class Profiles extends Activity {
 
 	ImageView image;
@@ -39,28 +43,31 @@ public class Profiles extends Activity {
 		bodyfatView = (TextView) findViewById(R.id.bodyfatTextView);
 
 	}
-
+	/**
+	 * Starts the routinesList activity
+	 */ 
 	public void onClickRoutines(View v) {
 		startActivity(new Intent("edu.utep.cs.cs4390.getfit.RoutinesList"));
 	}
-
+	/**
+	 * Starts the edit profiles activity
+	 */
 	public void onClickEdit(View v) {
 		startActivity(new Intent("edu.utep.cs.cs4390.getfit.EditProfiles"));
 	}
-
+	/**
+	 * sets the view to display current measurements from shared preferences or database.  
+	 */
 	public void onStart() {
 		super.onStart();
+		//gets name and age from shared preferences
 		SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
 		String temp = settings.getString("name", "Name");
 		nameView.setText(temp);
 		ageView.setText("Age: " + settings.getInt("age", 0) + "");
-		// weightView.setText("Weight: "+settings.getInt("weight", 0)+" lbs");
-		// temp = settings.getInt("heightFeet",
-		// 0)+"'"+settings.getInt("heightInches",0)+"\"";
-		// heightView.setText("Height: "+temp);
-		// bodyfatView.setText("Body Fat: "+settings.getInt("bodyfat", 0)+"%");
 		helper = new ExerciseHelper(this);
 		ArrayList<Measurable> ms = helper.getMeasurables();
+		//text view names are hard-coded and measurements are set from the database
 		weightView.setText("Weight: " + ms.get(0).getMeasurement() + " lbs");
 		heightView.setText("Height: " + ms.get(1).getMeasurement() + " \"");
 		waistView.setText("Waist: " + ms.get(2).getMeasurement() + " \"");
