@@ -19,21 +19,21 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * Allows the user to edit his or her profile information. This includes the name, age, 
+ * weight, height,and other measurements of the body.   
+ * 
+ */
 public class EditProfiles extends Activity {
 	EditText nameEdit, ageEdit, weightEdit, heightEdit, bodyfatEdit;
 	EditText heightInchesEdit, heightFeetEdit;
 	ExerciseHelper helper;
-
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.editprofiles);
 		nameEdit = (EditText) findViewById(R.id.profileNameEditText);
 		ageEdit = (EditText) findViewById(R.id.ageEditText);
-		//weightEdit = (EditText) findViewById(R.id.weightEditText);
-		//heightFeetEdit = (EditText) findViewById(R.id.heightFeetEditText);
-		//heightInchesEdit = (EditText) findViewById(R.id.heightInchesEditText);
-		//bodyfatEdit = (EditText) findViewById(R.id.bodyfatEditText);
 		helper = new ExerciseHelper(this);
 		ArrayList<Measurable> ms = helper.getMeasurables();
 		Measurable[] marray = (Measurable[]) ms.toArray(new Measurable[ms
@@ -42,7 +42,9 @@ public class EditProfiles extends Activity {
 		ListView listView = (ListView) findViewById(R.id.editProfileListView);
 		listView.setAdapter(adapter);
 	}
-
+	/**
+	 * saves the name and age using shared preferences
+	 */
 	public void onClickSubmit(View v) {
 
 		SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
@@ -50,38 +52,38 @@ public class EditProfiles extends Activity {
 		editor.putString("name", nameEdit.getText().toString());
 		Log.i("Put", "name:" + nameEdit.getText().toString());
 		editor.putInt("age", parseInt(ageEdit.getText().toString()));
-		//editor.putInt("weight", parseInt(weightEdit.getText().toString()));
-		//editor.putInt("heightInches", parseInt(heightInchesEdit.getText().toString()));
-		//editor.putInt("heightFeet", parseInt(heightFeetEdit.getText().toString()));
-		//editor.putInt("bodyfat", parseInt(bodyfatEdit.getText().toString()));
-		// Commit the edits!
+		// Commits the edits
 		editor.commit();
 		finish();
-		// Toast.makeText(getApplicationContext(), "changes submitted",
-		// Toast.LENGTH_SHORT).show();
 	}
-
+	/**
+	 * retrieves the name and age that are stored using shared preferences
+	 */
 	public void onStart() {
 		super.onStart();
 		SharedPreferences settings = getSharedPreferences("prefs", MODE_PRIVATE);
 		String temp = settings.getString("name", "Name");
 		nameEdit.setText(temp);
 		ageEdit.setText(settings.getInt("age", 0) + "");
-		//weightEdit.setText(settings.getInt("weight", 0) + "");
-		//heightInchesEdit.setText(settings.getInt("heightInches", 0) + "");
-		//heightFeetEdit.setText(settings.getInt("heightFeet", 0) + "");
-		//bodyfatEdit.setText(settings.getInt("bodyfat", 0) + "");
 	}
-
+	/**
+	 * converts a string to and integer.  If the string cannot be converted, a zero is returned.
+	 * 
+	 * @param s string to be converted into an integer
+	 * @return an integer based on the string's value
+	 */
 	private int parseInt(String s) {
 		try {
 			return Integer.parseInt(s);
 		} catch (NumberFormatException nfe) {
-			// Log exception.
 			return 0;
 		}
 	}
-
+	/**
+	 * Used to display the editable measurements of each bodypart on a listView. 
+	 * Includes a textView of the name of the bodypart, a seekbar to change the value, 
+	 * and a textView with the value.
+	 */
 	private class MyArrayAdapter extends ArrayAdapter<Measurable> {
 		private final Context context;
 		private final Measurable[] values;
@@ -92,7 +94,9 @@ public class EditProfiles extends Activity {
 			this.context = context;
 			this.values = values;
 		}
-
+		/**
+		 * Sets up the view containing all measurable body parts.
+		 */
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -107,7 +111,8 @@ public class EditProfiles extends Activity {
 			label1.setText(values[position].getName());
 			final int id = values[position].getId();
 			String temp = values[position].getName();
-			final String type;
+			final String type; //inches, pounds (lbs), or percent (%)
+			//sets max values in the seekbar and the type label to be displayed:
 			if (temp.equalsIgnoreCase("weight")) {
 				seekbar.setMax(500);
 				type = " lbs";
@@ -119,6 +124,7 @@ public class EditProfiles extends Activity {
 				type=" inches";
 			}else
 				type = " inches";
+			//sets the seekbar to the correct position and the label with the correct value:	
 			seekbar.setProgress(values[position].getMeasurement());
 			label2.setText(values[position].getMeasurement() + type);
 			seekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -126,25 +132,23 @@ public class EditProfiles extends Activity {
 				@Override
 				public void onProgressChanged(SeekBar seekBar, int progress,
 						boolean fromUser) {
-					// TODO Auto-generated method stub
+					//updates the label when the seekbar is changed:		
 					label2.setText(progress + type);
 				}
 
 				@Override
 				public void onStartTrackingTouch(SeekBar seekBar) {
-					// TODO Auto-generated method stub
-
 				}
 
 				@Override
 				public void onStopTrackingTouch(SeekBar seekBar) {
-					SQLiteDatabase db = helper.getWritableDatabase();//.update("measurable", values,
+					//saves changes to database automatically:
+					SQLiteDatabase db = helper.getWritableDatabase();
 					ContentValues initialValues = new ContentValues();
-					//initialValues.put("id",values[position].getId());	
 					initialValues.put("measurement",seekBar.getProgress());	
-					// "id = "+name, whereArgs);
 					db.update("measurables", initialValues, "id ="+id, null);
 					db.close();
+					//displays message to user:
 					Toast.makeText(getBaseContext(), "changes saved", Toast.LENGTH_SHORT).show();
 
 				}
