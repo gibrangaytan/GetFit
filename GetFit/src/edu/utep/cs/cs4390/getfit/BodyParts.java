@@ -21,7 +21,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-
+/**
+ * Displays a list of body parts to select exercises that correspond to it.
+ */ 
 public class BodyParts extends Activity {
 	
 	ArrayList<Muscle> muscle;
