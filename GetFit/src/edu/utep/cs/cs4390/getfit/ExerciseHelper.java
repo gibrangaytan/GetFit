@@ -13,7 +13,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-
+/**
+ * Used to access the database to retrieve and store information. 
+ */ 
 public class ExerciseHelper extends SQLiteOpenHelper {
 
 	private static final int DATABASE_VERSION = 1;
@@ -31,20 +33,19 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 	public ExerciseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		this.context = context;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
-
 	}
+	/**
+	 * checks if the database file exists and can be opened
+	 *
+	 */ 
 	private boolean checkDataBase() {
 	    SQLiteDatabase checkDB = null;
 	    try {
@@ -56,7 +57,10 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 	    }
 	    return checkDB != null ? true : false;
 	}
-
+	/**
+	 * returns the exercises in the database as an arrayList of Exercise objects.
+	 * @return a list of all the exercises in the database
+	 */ 
 	public ArrayList<Exercise> getAllExercises() {
 		ArrayList<Exercise> exercisesList = new ArrayList<Exercise>();
 		String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
@@ -84,7 +88,10 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		return exercisesList;
 	}
 
-	// Getting All Contacts
+	/**
+	 * gets the muscles in the database as an arrayList of Muscle objects.  
+	 * @return a list of all muscles in the database
+	 */ 
 	public ArrayList<Muscle> getAllMuscles() {
 		ArrayList<Muscle> muscleList = new ArrayList<Muscle>();
 		// Select All Query
@@ -111,6 +118,12 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 	}
 
 	// getting all exercises for a muscle
+	/**
+	 * gets all the exercises for a specified muscle in alphabetical order.
+	 * 
+	 * @param muscleID the muscle id used to find exercises
+	 * @return a list of exercises that correspond to the specified muscle
+	 */ 
 	public ArrayList<Exercise> getExerciseByMuscle(String muscleID) {
 		ArrayList<Exercise> exerciseByMuscle = new ArrayList<Exercise>();
 		// Select query
@@ -134,7 +147,12 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		db.close();
 		return exerciseByMuscle;
 	}
-
+	/**
+	 * gets a single exercise based on the specified id.
+	 * 
+	 * @param id the exercise id
+	 * @return an exercise object
+	 */ 
 	Exercise getExercise(int id) {
 		SQLiteDatabase db = this.getReadableDatabase();
 
@@ -154,7 +172,11 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		db.close();
 		return exercise;
 	}
-
+	/**
+	 * Gets a list of media objects that belong to a specified exercise
+	 * @param exerciseID the id of the exercise
+	 * @return an arrayList of media objects that belong to the exercise
+	 */
 	public ArrayList<Media> getMedia(String exerciseID) {
 		ArrayList<Media> mediaList = new ArrayList<Media>();
 		// Select query
@@ -178,7 +200,11 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		db.close();
 		return mediaList;
 	}
-	
+	/**
+	 * gets a list of all the routines in the database.
+	 * 
+	 * @return the list of Routine objects with information from the database
+	 */ 
 	public ArrayList<Routine> getRoutines() {
 		ArrayList<Routine> routineList = new ArrayList<Routine>();
 		// Select query
@@ -201,7 +227,11 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		db.close();
 		return routineList;
 	}
-	
+	/**
+	 * gets a list of the exercises along with the sets, reps,and weight for a specified routine. 
+	 * @param routineId the id of the routine
+	 * @return an arrayList of the exercise information needed for a routine
+	 */
 	public ArrayList<Routines_has_exercises> getRoutineExercises(String routineId) {
 		ArrayList<Routines_has_exercises> routineExercisesList = new ArrayList<Routines_has_exercises>();
 		// Select query
@@ -230,6 +260,10 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		db.close();
 		return routineExercisesList;
 	}
+	/**
+	 * adds a new routine to the database.
+	 * @param name the name of the routine to add to the database
+	 */
 	public void createRoutine(String name){
 		int id;
 		String selectMaxId = "SELECT MAX(id) FROM routines;";
@@ -243,6 +277,14 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		cursor.close();
 		db.close();
 	}
+	/**
+	 * adds an exercise, with reps, sets, and weight, to a routine in the database.
+	 * @param exerciseId the id of the exercise
+	 * @param name the name of the routine as it is in the database
+	 * @param reps the number of repetitions for the exercise
+	 * @param sets the number of sets for the exercise
+	 * @param weight the weight for the exercise
+	 */
 	public void insertRoutineSpec(String exerciseId, String name, String reps, String sets, String weight){
 		int id;
 		String selectId = "SELECT id FROM routines WHERE name = '"+ name +"';";
@@ -257,6 +299,11 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		cursor.close();
 		db.close();
 	}
+	/**
+	 * gets the id of an exercise from its name.
+	 * @name the name of the exercise
+	 * @return the id of the exercise 
+	 */
 	public String getIdFromExerciseName(String name){
 		String id = "";
 		String selectId = "SELECT id FROM exercises WHERE name = '"+ name +"';";
@@ -268,9 +315,11 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		cursor.close();
 		db.close();
 		return id;
-		
-		
 	}
+	/**
+	 * removes a routine from the database.
+	 * @param name the name of the routine to delete
+	 */
 	public void deleteRoutine(String name){
 		String getid = "SELECT id FROM routines WHERE name = '"+ name +"';";
 		
@@ -286,7 +335,11 @@ public class ExerciseHelper extends SQLiteOpenHelper {
 		cursor.close();
 		db.close();
 	}
-	
+	/**
+	 * gets a list of the measurable body parts from the database. This includes things like 
+	 * weight, height, body fat, chest, waist, arms, neck, and more. 
+	 * @return an arrayList of the measurable body parts
+	 */
 	public ArrayList<Measurable> getMeasurables() {
 		ArrayList<Measurable> measurableList = new ArrayList<Measurable>();
 		// Select query
