@@ -1,5 +1,7 @@
 package edu.utep.cs.cs4390.getfit;
-
+/**
+ * Used to save exercise data from the database into objects.
+ */ 
 public class Exercise {
 	int id;
 	String name;
@@ -7,14 +9,13 @@ public class Exercise {
 	int types_id;
 	int difficulties_id;
 	int mechanics_id; 
-	/*
-	 * or ?
-	 * Type type;
-	 * Difficulty difficulty;
-	 * Mechanics mechanics;
-	 */
+	/**
+	 * empty contructor
+	 */ 
 	public Exercise(){}
-	
+	/**
+	 * constructor with all fields specified
+	 */ 
 	public Exercise(int id, String name, String steps, int types_id,
 			int difficulties_id, int mechanics_id) {
 		super();
@@ -25,22 +26,39 @@ public class Exercise {
 		this.difficulties_id = difficulties_id;
 		this.mechanics_id = mechanics_id;
 	}
-
+	/**
+	 * returns the exercise's id
+	 */ 
 	public int getId() {
 		return id;
 	}
+	/**
+	 * sets the exercies's id
+	 */ 
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * returns the exercise's name
+	 */ 
 	public String getName() {
 		return name;
 	}
+	/**
+	 * sets the exercise's name
+	 */ 
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * returns the exercise's steps
+	 */ 
 	public String getSteps() {
 		return steps;
 	}
+	/**
+	 * sets the exercise's steps
+	 */ 
 	public void setSteps(String steps) {
 		this.steps = steps;
 	}
