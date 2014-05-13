@@ -60,7 +60,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
-
+/**
+ * Displays routine details and allows user to share it through facebook.
+ */  
 public class RoutineView extends Activity {
 
 	ArrayList<Routines_has_exercises> e;
@@ -205,13 +207,6 @@ public class RoutineView extends Activity {
         // Can we present the share dialog for regular links?
         canPresentShareDialog = FacebookDialog.canPresentShareDialog(this,
                 FacebookDialog.ShareDialogFeature.SHARE_DIALOG);
-        
-        
-		
-
-
-		
-
 	}
 	@Override
     protected void onResume() {
