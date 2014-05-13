@@ -18,6 +18,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * Displays a list of exercises with an autocomplete textView. Selecting an exercise starts
+ * a new activity with the details of the exercise.
+ */
 public class ExerciseList extends Activity {
 
 	ArrayList<Exercise> e;
@@ -76,14 +80,10 @@ public class ExerciseList extends Activity {
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1,
 					int arg2, int arg3) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
-
 			}
 
 		});
