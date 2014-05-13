@@ -23,11 +23,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+/**
+ * Displays the initial screen of the application with three buttons to view exercises, profile information, and meals.
+ * 
+ */ 
 public class MainActivity extends ActionBarActivity {
 
 	private static final String DB_FULL_PATH = "data/data/edu.utep.cs.cs4390.getfit/databases/getfit.db";
 	
-	
+	/**
+	 * Copies the database from the assets folder if it doesn't exist.
+	 */ 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,24 +80,37 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
+    /**
+     * checks if the database exists in the device. Used to check if the database should
+     * be copied from the assets folder.
+     * @return if the database exists in the device.
+     */ 
 	private boolean checkDataBase() {
 		File dbFile = new File(DB_FULL_PATH);
 	    return dbFile.exists();
 	}
+	/**
+	 * Starts the bodyParts activity.  this allows the user to select bodyparts to narrow the 
+	 * list of exercises to display.
+	 */ 
     public void onClick(View v){
 
     		startActivity(new Intent("edu.utep.cs.cs4390.getfit.BodyParts"));
     }
+    /**
+     * Starts the Meals activity.  This displays a list of the meals.
+     */ 
     public void onClickMeals(View v){
     		startActivity(new Intent("edu.utep.cs.cs4390.getfit.Meals"));
     }
+    /**
+     * Starts the Profiles activity.  This displays the user's profile information.
+     */ 
     public void onClickProfile(View v){
     		startActivity(new Intent("edu.utep.cs.cs4390.getfit.Profiles"));
    	}
     
     
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
