@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * Displays a list of meals.  Selecting one opens a mealView activity, which displays details of a meal.
+ */ 
 public class Meals extends Activity {
 	
 	ArrayList<String> meals;
@@ -38,11 +41,7 @@ public class Meals extends Activity {
 	    			
 	    			startActivity(new Intent("edu.utep.cs.cs4390.getfit.MealView"));
 
-	    			
-
 	    			}
-	    		
-	    		
 	    	});
 	 }
 	 
