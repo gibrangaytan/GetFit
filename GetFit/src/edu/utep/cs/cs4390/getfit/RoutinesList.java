@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+/**
+ * Displays a list of routines and options to add and delete one at a time.
+ */ 
 public class RoutinesList extends Activity {
 	
     ArrayList<Routine> routine;
@@ -72,25 +75,23 @@ public class RoutinesList extends Activity {
     				Intent i = new Intent("edu.utep.cs.cs4390.getfit.RoutineView");
     				i.putExtra("id", idValue);
     				startActivity(i);
-    				
-
     				}
-    			
-        		
     		});
-        
 	}
-	
+	/**
+	 * starts activity to add a new routine.
+	 */ 
 	public void onClick(View v){
 		startActivity(new Intent("edu.utep.cs.cs4390.getfit.AddRoutine"));
 		
 	}
+	/**
+	 * removes a routine from the database and refreshes list.
+	 */ 
 	public void onClickDelete(View v){
 		nameEdit = (EditText) findViewById(R.id.editdelete);
 		String name = nameEdit.getText().toString();
 		db.deleteRoutine(name);
 		startActivity(new Intent("edu.utep.cs.cs4390.getfit.RoutinesList"));
-
 	}
-
 }
