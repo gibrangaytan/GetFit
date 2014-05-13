@@ -12,6 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * Displays the details of a meal.  Shows a picture of a meal, the ingredients, and the directions 
+ * to prepare it.
+ */ 
 public class MealView extends Activity {
 	
 	LinearLayout view;
