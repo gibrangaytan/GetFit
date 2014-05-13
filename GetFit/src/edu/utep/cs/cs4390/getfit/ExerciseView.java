@@ -19,6 +19,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * Displays the details of an exercise.  Displays pictures, if they are available, 
+ * and the steps of a selected exercise.
+ */
 public class ExerciseView extends Activity{
 	
 	int id;
@@ -50,6 +54,7 @@ public class ExerciseView extends Activity{
         
         
         ExerciseHelper db = new ExerciseHelper(this);
+        //gets media information from the database
         e = new ArrayList<Media>();
         es = new ArrayList<String>();
         id_ = Integer.toString(id);
@@ -70,9 +75,7 @@ public class ExerciseView extends Activity{
         	
         	
         }
-        
-        
-         
+        //adds steps to textView
        // ListView listview = (ListView)findViewById(R.id.list);
         TextView textview = (TextView)findViewById(R.id.steps);
 		//Toast.makeText(getApplicationContext(),"exe"+ id, Toast.LENGTH_SHORT).show();
